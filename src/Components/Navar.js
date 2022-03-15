@@ -1,15 +1,4 @@
-// import React from 'react'
 
-// function Navar(){
-
-    
-// }
-
-
-
-
-
-// export default Navbar
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -57,7 +46,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            BikeShop
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
