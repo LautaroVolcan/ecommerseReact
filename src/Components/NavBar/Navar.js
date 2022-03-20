@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import CartIcon from "./Components/CartIcon/CartIcon";
+import CartIcon from "../CartIcon/CartIcon";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -49,7 +49,7 @@ const ResponsiveAppBar = () => {
           >
             BikeShop
           </Typography>
-
+          
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -135,7 +135,7 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          <CartIcon/>
+        
         </Toolbar>
       </Container>
     </AppBar>
