@@ -4,7 +4,7 @@ const CartIcon = () => {
 
     return(
         
-        ShoppingCartIcon
+       <ShoppingCartIcon/>
     )
 }
 export default CartIcon; 
