@@ -1,9 +1,10 @@
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
 
     return(
 
-        <h1> Greetings!</h1>
+        <h1>{props.greetings}</h1>
     )
 }
 export default ItemListContainer;
+
