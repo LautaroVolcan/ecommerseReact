@@ -1,17 +1,29 @@
-import React from "react";
-import React, {useState} from "react";
+
+import React, { useState } from "react";
 
 
-const itemCount = () => {
 
-const [ count, setcount ] = useState(1);
+const ItemCount = (prop) => {
+
+// destructracion: stock initial y onAdd -- validacion
+const {stock, initial, onAdd } = prop
+
+
+const [ count, setCount ] = useState(initial);
 
   const addProduct = () => {
-setcount(count +1)
+      if(stock>count){
+        setCount(count + 1)   
+      }
+
+    
 
   }
   const removeProduct = () => {
-    setcount(count - 1)
+      if(count>initial){
+        setCount(count - 1)
+      }
+
   }
 
 
@@ -23,9 +35,9 @@ setcount(count +1)
         <button onClick={addProduct}>+</button>
         <button>{count}</button>
         <button onClick={removeProduct}>-</button>
-        <button className="addCart">Agregar al carrito</button>
+        <button className="addCart" onClick={onAdd}>Agregar al carrito</button>
       </div>
     </div>
   )
 }
-export default itemCount;
+export default ItemCount;
