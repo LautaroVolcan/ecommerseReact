@@ -5,8 +5,8 @@ import React, { useState } from "react";
 
 const ItemCount = (prop) => {
 
-// destructracion: stock initial y onAdd -- validacion
 const {stock, initial, onAdd } = prop
+
 
 
 const [ count, setCount ] = useState(initial);
@@ -14,9 +14,7 @@ const [ count, setCount ] = useState(initial);
   const addProduct = () => {
       if(stock>count){
         setCount(count + 1)   
-      }
-
-    
+      } 
 
   }
   const removeProduct = () => {
@@ -35,7 +33,7 @@ const [ count, setCount ] = useState(initial);
         <button onClick={addProduct}>+</button>
         <button>{count}</button>
         <button onClick={removeProduct}>-</button>
-        <button className="addCart" onClick={onAdd}>Agregar al carrito</button>
+        <button className="addCart" onClick={() => onAdd(count)}>Agregar al carrito</button>
       </div>
     </div>
   )

@@ -1,16 +1,15 @@
-import ItemCount from '../NavBar/ItemCount.js';
 
+import ItemList from './ItemList/ItemList.js';
 
 
 const ItemListContainer = (props) => {
+const {greetings} = props
 
-    const onAdd =()=> {
-        alert("Se agregaron" + count + "objetos al carrito")
-    }
+    
     return(
           <div>
-        <h1>{props.greetings}</h1>
-        <ItemCount stock={10} initial={1} onAdd={onAdd} />
+        <h1>{greetings}</h1>
+        <ItemList/>
         </div>
 
     )
