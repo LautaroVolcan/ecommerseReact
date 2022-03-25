@@ -27,8 +27,6 @@ const [ count, setCount ] = useState(initial);
 
   return (
     <div>
-
-      <h1>Card</h1>
       <div className={"card"}>
         <button onClick={addProduct}>+</button>
         <button>{count}</button>

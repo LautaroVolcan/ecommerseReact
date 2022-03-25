@@ -7,7 +7,7 @@ return(
 
     <div className='ItemList'>
 
-         {/* <Item id = {1} name = {"Mamba"} price={200} img ={"fuego"} /> */}
+         <Item id = {1} name = {"Mamba"} price={200} img ={"fuego"} />
     </div>
 )
 
