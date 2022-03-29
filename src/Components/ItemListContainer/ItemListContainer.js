@@ -1,6 +1,6 @@
 
 import ItemList from './ItemList/ItemList.js';
-
+import ItemDetail from '../ItemListContainer/ItemDetail'
 
 const ItemListContainer = (props) => {
 const {greetings} = props
@@ -10,6 +10,7 @@ const {greetings} = props
           <div>
         <h1>{greetings}</h1>
         <ItemList/>
+        <ItemDetail/>
         </div>
 
     )

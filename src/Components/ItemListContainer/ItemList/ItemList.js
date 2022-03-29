@@ -6,8 +6,7 @@ const ItemList =() => {
 return(
 
     <div className='ItemList'>
-
-         <Item id = {1} name = {"Mamba"} price={200} img ={"fuego"} />
+         <Item/>
     </div>
 )
 

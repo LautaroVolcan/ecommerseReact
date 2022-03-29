@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import ItemCount from "./ItemCount";
 
-const Item = (props) => {
-  const {id, price, image, name, color} = props;
+
+const Item = () => {
+
 
   const mockProducts = [
     {
@@ -47,21 +47,24 @@ const Item = (props) => {
     });
   }, []);
 
-  const onAdd = (count) => {
-    alert(`Se agregaron ${count} objetos al carrito"`);
-  };
-
+  
   return (
     <div className="cardExp">
       <div className="imgCard">
-        <img src={image} alt={id}></img>
-      </div>
-      <h2> {id} </h2>
-      <h2> {name}</h2>
-      <h2> $ {price} </h2>
-      <h2> Color {color}</h2>
-      {console.log("productos:", products)}
-      <ItemCount stock={5} initial={1} onAdd={onAdd} />
+  
+      {products.map((product) => {
+        const {id, name, price, color} = product;
+        return (
+          <div>
+            <h2> {id} </h2>
+            <h2> {name}</h2>
+            <h2> $ {price} </h2>
+            <h2> Color {color}</h2>
+          </div>
+        );
+      })}
+      
+    </div>
     </div>
   );
 };
