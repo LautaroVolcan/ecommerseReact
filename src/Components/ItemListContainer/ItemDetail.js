@@ -51,12 +51,13 @@ const ItemDetail = () => {
                     <h2> $ {price} </h2>
                     <h2>  {color}</h2>
                     <h2>{size}</h2>
+                    <ItemCount stock={5} initial={1} onAdd={onAdd} />
                   </div>
                 );
               })}
 
            
-                <ItemCount stock={5} initial={1} onAdd={onAdd} />
+            
                
             
            

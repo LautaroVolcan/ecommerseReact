@@ -1,72 +1,46 @@
-import { useState, useEffect } from "react";
+import './item.css';
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { dividerClasses } from '@mui/material';
 
 
-const Item = () => {
-
-
-  const mockProducts = [
-    {
-      id: 1,
-      name: "BlackSox",
-      price: 20,
-      color: "Black",
-    },
-    {
-      id: 2,
-      name: "GreenSox",
-      price: 10,
-      color: "Green",
-    },
-    {
-      id: 3,
-      name: "OrangeSox",
-      price: 30,
-      color: "Orange",
-    },
-    {
-      id: 4,
-      name: "BlueSox",
-      price: 40,
-      color: "Blue",
-    },
-  ];
-
-  const [products, setdataProd] = useState([]);
-
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      return setTimeout(() => {
-        resolve(mockProducts);
-      }, 3000);
-    });
-  };
-
-  useEffect(() => {
-    getProducts().then((dataProd) => {
-      setdataProd(dataProd);
-    });
-  }, []);
-
+const Item = (props) => {
+  const { id, name, price, color, img, size } = props.productData;
   
+
   return (
-    <div className="cardExp">
-      <div className="imgCard">
-  
-      {products.map((product) => {
-        const {id, name, price, color} = product;
-        return (
-          <div>
-            <h2> {id} </h2>
-            <h2> {name}</h2>
-            <h2> $ {price} </h2>
-            <h2> Color {color}</h2>
-          </div>
-        );
-      })}
-      
-    </div>
-    </div>
-  );
+
+    
+    <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={img}
+        alt="sox"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {color}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">$ {price}</Button>
+        <Button size="small">{size}</Button>
+      </CardActions>
+    </Card>
+   
+  ) 
 };
 
 export default Item;
+
+
+    
