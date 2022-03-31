@@ -6,7 +6,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { dividerClasses } from '@mui/material';
 
 
 const Item = (props) => {
@@ -14,8 +13,8 @@ const Item = (props) => {
   
 
   return (
+<div className='item'>
 
-    
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
@@ -36,6 +35,7 @@ const Item = (props) => {
         <Button size="small">{size}</Button>
       </CardActions>
     </Card>
+    </div>
    
   ) 
 };

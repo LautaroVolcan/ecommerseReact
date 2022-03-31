@@ -1,19 +1,10 @@
 import ItemCount from "../ItemListContainer/ItemList/Item/ItemCount";
 import { useState, useEffect } from "react";
-
+import mockItem from "../../../data/mockItem";
 
 const ItemDetail = () => {
 
-    const mockItem = [
-        {
-          id: 1,
-          name: "BlackSox",
-          price: 20,
-          color: "Black",
-          details: "loremipsum",
-          size: "L",
-        },
-    ];
+  
     const [itemDetail, setItemDetail] = useState([]);
 
     const getItem = () => {
