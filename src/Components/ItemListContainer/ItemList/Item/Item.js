@@ -31,8 +31,8 @@ const Item = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">$ {price}</Button>
-        <Button size="small">{size}</Button>
+        <Button size="small">Details</Button>
+        <Button size="small">Buy</Button>
       </CardActions>
     </Card>
     </div>
