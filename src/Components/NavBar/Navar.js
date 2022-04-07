@@ -12,7 +12,7 @@ import Menu from '@mui/material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import CartIcon from "../CartIcon/CartIcon";
-
+import CartContext from '../../Context/CartContext';
 
 
 

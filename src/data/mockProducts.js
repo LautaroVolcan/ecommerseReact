@@ -2,7 +2,7 @@
 
 const mockProducts = [
     {
-      id: 1,
+      id: "1",
       name: "BlackSox",
       price: 20,
       color: "Black",
@@ -10,7 +10,7 @@ const mockProducts = [
       size:"Large",
     },
     {
-      id: 2,
+      id: "2",
       name: "GreenSox",
       price: 10,
       color: "Green",
@@ -18,7 +18,7 @@ const mockProducts = [
       size:"Small",
     },
     {
-      id: 3,
+      id: "3",
       name: "OrangeSox",
       price: 30,
       color: "Orange",
@@ -26,7 +26,7 @@ const mockProducts = [
       size:"Medium",
     },
     {
-      id: 4,
+      id: "4",
       name: "BlueSox",
       price: 40,
       color: "Blue",

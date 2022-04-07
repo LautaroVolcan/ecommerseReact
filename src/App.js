@@ -8,17 +8,21 @@ import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetail/Ite
 // Routes
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { CartProvider } from "./Context/CartContext";
 
 function App() {
   return (
     <div className="App">
+      {/* <CartProvider> */}
       <BrowserRouter>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path="/" element={ <ItemListContainer greetings='SoxCommerce'/>} />
-          <Route path="/Item1" element={<ItemDetailContainer/> }/>
+          <Route path="/item/:id" element={<ItemDetailContainer/> }/>
         </Routes>
       </BrowserRouter>
+      {/* </CartProvider> */}
+
     </div>
   );
 }
