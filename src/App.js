@@ -1,6 +1,7 @@
 import "./App.css";
 
 //Components
+import HomePage from "./pages/home";
 import Navbar from "./Components/NavBar/Navar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetail/ItemDetailContainer";
@@ -15,14 +16,20 @@ function App() {
     <div className="App">
       {/* <CartProvider> */}
       <BrowserRouter>
-        <Navbar/>
+        <Navbar />
         <Routes>
-          <Route path="/" element={ <ItemListContainer greetings='SoxCommerce'/>} />
-          <Route path="/item/:id" element={<ItemDetailContainer/> }/>
+          <Route
+            path="/"
+            element={<HomePage/>}
+          />
+          <Route
+            path="/category/:id"
+            element={<ItemListContainer greetings="SoxCommerce" />}
+          />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
       {/* </CartProvider> */}
-
     </div>
   );
 }
