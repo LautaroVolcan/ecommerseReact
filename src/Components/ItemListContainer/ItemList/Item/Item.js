@@ -31,7 +31,7 @@ const Item = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-      <Link to={'/item/:id'}>
+      <Link to={`/item/${id}`}>
         <Button size="small">
           Details</Button>
           </Link>

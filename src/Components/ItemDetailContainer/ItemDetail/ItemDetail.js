@@ -5,7 +5,7 @@ const ItemDetail = ({item}) => {
   console.log(item)
   const { id, name, price, color, size, details } = item;
 
-  console.log(id)
+
     const onAdd = (count) => {
         alert(`Se agregaron ${count} objetos al carrito`);
       };
