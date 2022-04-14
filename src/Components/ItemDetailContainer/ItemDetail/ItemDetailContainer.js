@@ -1,41 +1,40 @@
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import mockProducts from "../../../data/mockProducts"
+import { doc, getDoc } from "firebase/firestore";
+import db from "../../../firebase";
 
 const ItemDetailContainer = () => {
   const [itemDetail, setItemDetail] = useState({});
- const  {id} = useParams();
- 
- console.log(id)
-
-
-  const getItem = () => {
-    return new Promise((resolve, reject) => {
-      return setTimeout(() => {
-        resolve(mockProducts);
-      }, 2000);
-    });
-  };
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
 
   useEffect(() => {
-    getItem().then((dataItem) => {
-      setItemDetail(dataItem.find(item => item.id === id));
-    });
+    async function getById() {
+      try {
+        const item = doc(db, "items", id);
+        const response = await getDoc(item);
+
+        //console.log(data)
+        setItemDetail({ id: response.id, ...response.data() });
+        setLoading(false);
+      } catch (error) {
+        /* Manejo de Errores */
+      }
+    }
+    getById();
   }, [id]);
-  
+
 
   return (
-    
-          <div>
-            
-            <ItemDetail key={itemDetail.id} item={itemDetail}/>
-
-          </div>
-        );
-      
-
-  };
-
+    <div>
+      {loading ? (
+        <hi>Loading</hi>
+      ) : (
+        <ItemDetail key={itemDetail.id} item={itemDetail} />
+      )}
+    </div>
+  );
+};
 
 export default ItemDetailContainer;

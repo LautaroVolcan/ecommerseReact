@@ -29,6 +29,8 @@ const ItemCount = (prop) => {
             <button className="addCart" onClick={() => onAdd(count)}>
               Agregar al carrito
             </button>
+            
+            
           </div>
         </div>
       )}
