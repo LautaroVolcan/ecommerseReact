@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ItemList from './ItemList/ItemList.js';
 import db from '../../firebase.js';
 import { collection, getDocs } from "firebase/firestore";
-
+import Container from '@mui/material/Container';
 
 const ItemListContainer = () => {
 
@@ -37,7 +37,9 @@ const ItemListContainer = () => {
     
     return(
           <div>
-        <ItemList prodListData= {products} />
+            <Container maxWidth="sm">
+        <ItemList key={products.id} prodListData = {products} />
+        </Container>
         </div>
 
     )
