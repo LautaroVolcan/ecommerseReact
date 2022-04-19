@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import CartIcon from "../CartIcon/CartIcon";
-import CartContext from '../../Context/CartContext';
+import { useCartContext } from "../../Context/CartContext"
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 

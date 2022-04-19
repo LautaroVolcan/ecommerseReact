@@ -3,6 +3,7 @@ import ItemList from './ItemList/ItemList.js';
 import db from '../../firebase.js';
 import { collection, getDocs } from "firebase/firestore";
 import Container from '@mui/material/Container';
+import '../ItemListContainer/item-list-container.css'
 
 const ItemListContainer = () => {
 
@@ -37,7 +38,7 @@ const ItemListContainer = () => {
     
     return(
           <div>
-            <Container maxWidth="sm">
+            <Container className='itemListCont' maxWidth="sm">
         <ItemList key={products.id} prodListData = {products} />
         </Container>
         </div>
