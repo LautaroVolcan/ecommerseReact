@@ -1,10 +1,10 @@
 import "./App.css";
 
 //Components
-import HomePage from "./pages/home";
+import HomePage from "./pages/home/home";
 import Navbar from "./Components/NavBar/Navar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetail/ItemDetailContainer";
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./pages/cart/Cart";
 import {CartContextProvider} from './Context/CartContext'
 
@@ -27,7 +27,7 @@ function App() {
           />
           <Route
             path="/category/:id"
-            element={<ItemListContainer greetings="SoxCommerce" />}
+            element={<ItemListContainer/>}
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart/>} />

@@ -9,13 +9,13 @@ import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
 
 const Item = (props) => {
-  const { id, name, price, color, img, size } = props.productData;
+  const { id, name, color, img, } = props.productData;
   
 
   return (
 <div className='item'>
 
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 245 }}>
       <CardMedia
         component="img"
         height="140"
@@ -31,11 +31,14 @@ const Item = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
+     
+     
+     
       <Link to={`/item/${id}`}>
         <Button size="small">
           Details</Button>
           </Link>
-        <Button size="small">Buy</Button>
+  
       </CardActions>
     </Card>
     </div>

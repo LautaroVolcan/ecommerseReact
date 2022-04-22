@@ -1,10 +1,10 @@
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const CartIcon = () => {
 
     return(
         
-       <ShoppingCartIcon/>
+       <ShoppingBagIcon sx={{ fontSize: 30 }} color="dark"/>
     )
 }
 export default CartIcon; 

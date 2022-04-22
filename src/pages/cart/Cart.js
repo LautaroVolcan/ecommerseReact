@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../Context/CartContext"
-
+import Button from '@mui/material/Button';
 
 
 
@@ -20,9 +20,9 @@ const Cart = () => {
           &&
           
           <div>
-              <p>No hay items en tu carrito...</p>
+              <p>Carrito Vacio</p>
               <Link to='/'>
-                  <button>Continuar comprando</button>
+                  <Button>Continuar comprando</Button>
               </Link>
           </div>
           
@@ -38,11 +38,11 @@ const Cart = () => {
                   </div>
                   <div className="col-md-4">
                   
-                      <button className="btn-sm btn-danger"
+                      <Button className="btn-sm btn-danger"
                               onClick={() => deleteOne(prod.id)}
                       >
                           Eliminar
-                      </button>
+                      </Button>
                   
                   </div>
               </div>
@@ -57,7 +57,7 @@ const Cart = () => {
 
           <div>
               <h4> Total de la compra: {addTotal()} </h4>
-              <button className="btn btn-danger" onClick={emptyCart}>Vaciar carrito</button>
+              <Button className="btn btn-danger" onClick={emptyCart}>Vaciar carrito</Button>
           </div>
 
       }     

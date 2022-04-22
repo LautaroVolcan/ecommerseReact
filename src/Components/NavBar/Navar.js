@@ -7,20 +7,17 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import CartIcon from "../CartIcon/CartIcon";
 import { useCartContext } from "../../Context/CartContext"
 import { Link } from "react-router-dom";
-import Badge from '@mui/material/Badge';
 
 
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
+  const { quantity, cartList } = useCartContext()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,9 +31,9 @@ const ResponsiveAppBar = () => {
  
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters >
         <Link to={'/'}>
           <Typography
             variant="h6"
@@ -44,7 +41,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            SOX Shop
+            Street Wear
           </Typography>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -92,7 +89,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            SOX Shop
+            Street Wear
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
            
@@ -119,12 +116,12 @@ const ResponsiveAppBar = () => {
            <Link to= {'/cart'}>
               <IconButton>
               
-              <Badge badgeContent={4} color="error">
-                <CartIcon />
-              </Badge>
+                <CartIcon/>
+      
             </IconButton>
       </Link>
-           
+
+      {cartList.length > 0 && quantity()}
            
           </Box>
         </Toolbar>
