@@ -6,7 +6,7 @@ import Navbar from "./Components/NavBar/Navar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./pages/cart/Cart";
-import {CartContextProvider} from './Context/CartContext'
+import { CartContextProvider } from "./Context/CartContext";
 
 // Routes
 
@@ -16,25 +16,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      
       <BrowserRouter>
-      <CartContextProvider>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage/>}
-          />
-          <Route
-            path="/category/:id"
-            element={<ItemListContainer/>}
-          />
-          <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart/>} />
-        </Routes>
+        <CartContextProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:category" element={<ItemListContainer />} />
+            <Route path="/item/:id" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
         </CartContextProvider>
       </BrowserRouter>
-      
     </div>
   );
 }

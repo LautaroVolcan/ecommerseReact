@@ -42,7 +42,7 @@ export function CartContextProvider({ children }) {
   }
 
   function quantity() {
-    return cartList.reduce((acum, item) => (acum += item.cantidad), 0);
+    return cartList.reduce((acum, item) => (acum += item.quantity), 0);
   }
 
 

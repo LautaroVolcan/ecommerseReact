@@ -12,9 +12,9 @@ return(
        {prodListData.map((productData) => {
 
         return (
-          <div>
+          <div key={productData.id}>
           
-            <Item key={productData.id} productData={productData}/>
+            <Item productData={productData}/>
   
           </div>
         );

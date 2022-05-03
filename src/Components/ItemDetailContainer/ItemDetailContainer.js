@@ -7,7 +7,7 @@ import db from "../../firebase";
 const ItemDetailContainer = () => {
   const [itemDetail, setItemDetail] = useState({});
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  const { id, category } = useParams();
 
   useEffect(() => {
     async function getById() {

@@ -28,6 +28,15 @@ const ResponsiveAppBar = () => {
     setAnchorElNav(null);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
  
 
   return (
@@ -93,22 +102,38 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
            
-              <Link to={'/category/:id'}>
+              <Link to={'/:category'}>
               <Button
             
-                onClick={handleCloseNavMenu}
+                // onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Products
-              </Button>
+                id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+
+              >Productos
+                </Button>
+              <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>
+          
+       <Link to={"/limited"} >Limited</Link>
+          
+          </MenuItem>
+       
+      </Menu>
+              
               </Link>
-              <Button
-            
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Contact
-              </Button>
+             
            
           </Box>
 
