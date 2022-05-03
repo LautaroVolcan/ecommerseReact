@@ -32,17 +32,18 @@ const ItemListContainer = () => {
   };
 
   useEffect(() => {
-    getProducts().then((dataProd) => {
-      setdataProd(dataProd);
+    setdataProd([])
+    getProducts().then((products) => {
+      setdataProd(products);
       setMainListLoader(false);
-      category ? filterProductByCategory(dataProd, category) : setdataProd(dataProd)
+      category ? filterProductByCategory(products, category) : setdataProd(products)
     });
   }, [category]);
 
   const filterProductByCategory = (array , category) => {
     return array.map( (product, i) => {
         if(product.category === category) {
-           return setdataProd(products => [product]);
+           return setdataProd(products => [...products, product]);
         }
     })
 }
