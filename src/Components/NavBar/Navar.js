@@ -92,9 +92,9 @@ const ResponsiveAppBar = () => {
             Street Wear
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link to={"/:category"}>
+            <Link to={"/categoria"}>
               <Button
-                // onClick={handleCloseNavMenu}
+
                 sx={{ my: 2, color: "white", display: "block" }}
                 id="basic-button"
                 aria-controls={open ? "basic-menu" : undefined}
@@ -113,9 +113,11 @@ const ResponsiveAppBar = () => {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <MenuItem onClick={handleClose}>
-                  <Link to={"/limited"}>Limited</Link>
-                </MenuItem>
+                <Link to={"categoria/limited"}>
+                <Button onClick={handleClose}>
+                  Limited Edition
+                </Button>
+                </Link>
               </Menu>
             </Link>
           </Box>

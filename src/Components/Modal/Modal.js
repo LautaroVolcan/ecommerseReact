@@ -1,6 +1,8 @@
 import Dialog from '@mui/material/Dialog';
 
 const ModalCustom = ({handleClose, open , children}) => {
+    
+    
     return(
         <>
             <Dialog onClose={handleClose} open={open}>
@@ -10,3 +12,4 @@ const ModalCustom = ({handleClose, open , children}) => {
     )
 }
 export default ModalCustom
+

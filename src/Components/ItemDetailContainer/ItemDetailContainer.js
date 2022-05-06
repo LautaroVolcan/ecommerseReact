@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import db from "../../firebase";
+import RingLoader from "react-spinners/RingLoader";
+
 
 const ItemDetailContainer = () => {
   const [itemDetail, setItemDetail] = useState({});
   const [loading, setLoading] = useState(true);
-  const { id, category } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     async function getById() {
@@ -29,7 +31,7 @@ const ItemDetailContainer = () => {
   return (
     <div>
       {loading ? (
-        <hi>Loading</hi>
+        <RingLoader color={"#691616"} loading={loading} size={100} />
       ) : (
         <ItemDetail key={itemDetail.id} item={itemDetail} />
       )}

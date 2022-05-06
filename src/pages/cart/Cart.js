@@ -5,7 +5,7 @@ import { useState } from "react";
 import db from '../../firebase'
 import { addDoc, collection } from 'firebase/firestore';
 import ModalCustom from '../../Components/Modal/Modal';
-
+import "./cart.css"
 
 const Cart = () => {
   const { cartList, deleteOne, emptyCart, addTotal } = useCartContext()
@@ -43,16 +43,12 @@ const handleSubmit = (e) => {
 const pushOrder = async (prevOrder) => {
     const orderFirebase = collection(db, 'ordenes')
     const orderDoc = await addDoc(orderFirebase, prevOrder)
-    console.log("orden generada: ", orderDoc.id)
     setSuccessOrder(orderDoc.id)
     
 }
 
 const handleChange = (e) => {
     const {value, name} = e.target
-    console.log("value: ", value)
-    console.log("name: ", name)
-
     setFormData({
         ...formData,
         [name]: value
@@ -131,8 +127,8 @@ const addOrder = () => {
                     </div>
                 ) : (
                     <>
-                        <h2>FORM USUARIO</h2>
-                        <form onSubmit={handleSubmit}>
+                        <h2>Datos para completar la compra</h2>
+                        <form autocomplete="off" onSubmit={handleSubmit}>
                             <input type="text" name='name' placeholder='Nombre' 
                                 onChange={handleChange} 
                                 value={formData.name}

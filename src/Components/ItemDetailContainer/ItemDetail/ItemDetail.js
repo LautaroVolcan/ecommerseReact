@@ -38,7 +38,7 @@ const ItemDetail = ({ item }) => {
           </div>
           
           <Link to="/cart">
-            <Button>Terminar MI COMPRA</Button>
+            <Button>Go to CART</Button>
           </Link>
         </div>
       ) : (

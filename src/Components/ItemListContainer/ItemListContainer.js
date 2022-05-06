@@ -1,68 +1,47 @@
-import { useEffect, useState } from 'react';
-import ItemList from './ItemList/ItemList.js';
-import db from '../../firebase.js';
-import { collection, getDocs } from "firebase/firestore";
-import '../ItemListContainer/item-list-container.css'
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList/ItemList.js";
+import db from "../../firebase.js";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import "../ItemListContainer/item-list-container.css";
 import { useParams } from "react-router-dom";
+import RingLoader from "react-spinners/RingLoader";
 
 const ItemListContainer = () => {
+  const [products, setdataProd] = useState([]);
+  const [mainListLoader, setMainListLoader] = useState(true);
 
-    const [products, setdataProd] = useState([]);
-    const [mainListLoader, setMainListLoader] = useState(true)
-
-    const { category } = useParams()
-
-  const getProducts = async () => {
-    const ItemColection = collection(db,'items')
-
-    const ProductosSnapshot = await getDocs(ItemColection)
-    const itemList = ProductosSnapshot.docs.map((doc)=>{
-      let product = doc.data()
-      product.id = doc.id
-      return product
-      
-
-    })
-   
-    
-    return itemList
-    
-    
-    
-  };
+  const { category } = useParams();
 
   useEffect(() => {
-    setdataProd([])
-    getProducts().then((products) => {
-      setdataProd(products);
+    const getProducts = async () => {
+      const ItemColection = !category
+        ? collection(db, "items")
+        : query(collection(db, "items"), where("category", "==", category));
+
+      const ProductosSnapshot = await getDocs(ItemColection);
+      const itemList = ProductosSnapshot.docs.map((doc) => {
+        let product = doc.data();
+        product.id = doc.id;
+        return product;
+      });
+
+      setdataProd(itemList);
       setMainListLoader(false);
-      category ? filterProductByCategory(products, category) : setdataProd(products)
-    });
+    };
+
+    getProducts();
   }, [category]);
 
-  const filterProductByCategory = (array , category) => {
-    return array.map( (product, i) => {
-        if(product.category === category) {
-           return setdataProd(products => [...products, product]);
-        }
-    })
-}
-
-
-    
-    return(
-      <>
-      { mainListLoader ? (
-        <h1>Loading</h1>
+  return (
+    <>
+      {mainListLoader ? (
+        <div>
+          <RingLoader color={"#691616"} loading={mainListLoader} size={100} />
+        </div>
       ) : (
-
-     
-        <ItemList key={products.id} prodListData = {products} />
-      
-
-    )}
+        <ItemList key={products.id} prodListData={products} />
+      )}
     </>
-    )
-}
+  );
+};
 export default ItemListContainer;
-
